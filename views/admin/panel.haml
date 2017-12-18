@@ -1,0 +1,63 @@
+!!! 5
+%html
+    %head
+        %title Mi Blog
+        %meta{:charset => "UTF-8"}
+        %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+        %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}
+        %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/css/materialize.min.css", :rel => "stylesheet"}
+        %link{:href => "../../assets/css/main.css", :rel => "stylesheet"}
+    
+    %body
+    - include('../../config/controllers/AdminController.php');
+    - $data = new AdminController();
+    - ob_start();
+    - session_start();
+
+    - if (!isset($_SESSION['correo'])) {
+    -    header('Location: ../index.php?userLogin');
+    -    exit();
+    - }else{
+
+        <!-- Barra de navegación noob -->
+        %nav.white
+            %div.nav-wrapper
+                %a{:href => "#!", "data-target" => "mobile-demo", :class => "sidenav-trigger"}
+                    %i.material-icons.coral menu
+                %div.container
+                    %a{:href => "panel.php", :class => "brand-logo"} Administración
+                    %ul.right.hide-on-med-and-down
+                        - $data->getCurrentUser();
+
+            %ul.sidenav#mobile-demo
+                - $data->getCurrentUser();
+
+        %div.row
+            %div.col.s12.m4.l3
+                %div.card-panel
+                    %span.coral
+                        %i.material-icons.left view_list 
+                        Menú de opciones
+                %div.collection.z-depth-1
+                    %a{:href => "panel.php?uploadNote", :class => "collection-item"} Subir nota
+                    %a{:href => "panel.php?showNotes", :class => "collection-item"} Ver notas
+                    %a{:href => "panel.php?showUsers", :class => "collection-item"} Ver roles
+            
+            %div.col.s12.m8.l9
+
+                - if(isset($_GET['uploadNote'])){
+                -    include('uploadNote.php');
+                - }elseif(isset($_GET['showNotes'])){
+                -    include('showNotes.php');
+                - }elseif(isset($_GET['showUsers'])){
+                -    include('showUsers.php');
+                - }else{
+                -    include('showNotes.php');
+                - }    
+                
+                
+        - }
+
+        %script{:src => "https://code.jquery.com/jquery-3.2.1.min.js"}
+        %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/js/materialize.min.js"}
+        %script{:src => "../../assets/js/main.js"}

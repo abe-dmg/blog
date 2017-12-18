@@ -1,0 +1,24 @@
+<!-- Barras de navegación laterales -->
+%div.row
+    %div.col.s12.m4.l3
+        %div.card-panel
+            %span.coral
+                %i.material-icons.left view_list 
+                Categorías
+        
+        %div.collection.z-depth-1
+            - $data->getCategories();
+                
+            
+    %div.col.s12.m8.l9
+        %div.card-panel
+            %span.coral
+                %i.material-icons.left library_books 
+                Notas recientes
+
+        - if(isset($_GET['idCategory'])){
+            - $data->getAllCategories();
+        - }else{
+            - $data->getAllNotes();
+        - }
+        

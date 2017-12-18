@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@import url('https://fonts.googleapis.com/css?family=Itim');
+
+body{
+    font-family: 'Varela Round', sans-serif;    
+    background-color: #F5F5F5;
+}
+
+.coral{
+    color: #ff7f61;
+}
+
+.carta{
+    width: 300px;
+}
+
+.descripcion{
+    margin: 5px 0px 0px 10px;
+}
+
+.copy{
+    margin-top: 30px;
+}
+
+nav .brand-logo{
+    color: coral;
+}
+
+nav ul li a{
+    color: coral;
+}
+
+.fecha{
+    font-size: 12px;
+}
+
+.input-field input[type=date]:focus + label,
+.input-field input[type=text]:focus + label,
+.input-field input[type=email]:focus + label,
+.input-field input[type=password]:focus + label {
+  color: coral !important; 
+}
+
+.input-field input[type=date]:focus,
+.input-field input[type=text]:focus,
+.input-field input[type=email]:focus,
+.input-field input[type=password]:focus {
+  border-bottom: 2px solid coral !important;
+  box-shadow: none !important;
+}
+
+.input-field .prefix.active {
+    color: coral !important;
+}

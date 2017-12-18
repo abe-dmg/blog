@@ -1,0 +1,25 @@
+%div.container
+    %div.col.s8
+        %div.card-panel
+            %form{:action => "", :method => "post"}
+                %div.container
+                    %div.center-align
+                        %div.input-field.col.s8
+                            %i.material-icons.prefix email
+                            %input{:id => "mail", :type => "email", :name => "correo", :required => ""} 
+                            %label{:for => "mail"} Correo electrónico
+
+                        %div.input-field.col.s8
+                            %i.material-icons.prefix dialpad
+                            %input{:id => "pass", :type => "password", :name => "pass", :required => ""} 
+                            %label{:for => "pass"} Contraseña
+                            
+                        %div.input-field.col.s8
+                            %button{:type => "submit", :name => "login", :class => "cyan darken-2 btn-large waves-effect waves-light"}Iniciar sesión
+- if(isset($_POST['login'])){
+-    $correo = $_POST['correo'];
+-    $pass = $_POST['pass'];
+
+-    $data->dataLogin($correo, $pass);
+-    $data->login();
+- }

@@ -1,0 +1,52 @@
+%div.card-panel
+    %span.coral
+        %i.material-icons.left cloud_upload
+        Subir una nueva nota
+
+%div.row
+    %div.cad-panel
+        %form{:action => "", :method => "post", "enctype" => "multipart/form-data"}
+            %div.center-align
+                %div.input-field.col.s6
+                    %input{:id => "title", :type => "text", :name => "titulo", :required => ""}
+                    %label{:for => "title"} Titulo de la nota        
+                
+                %div.input-field.col.s6
+                    %input{:id => "desc", :type => "text", :name => "descripcion", :required => ""}
+                    %label{:for => "desc"} Descripción de la nota
+
+                %div.input-field.col.s6
+                    %select{"name" => "relevante", :required => ""}
+                        %option{"value" => "", "disable" => "", "selected" => ""}Selecciona una opción
+                        %option{"value" => "1"} Es relevante
+                        %option{"value" => "0"} No es relevante
+
+                %div.input-field.col.s6
+                    %select{"name" => "categoria", :required => ""}
+                        %option{"value" => "", "disable" => "", "selected" => ""}Selecciona una categoría
+                        - $data->getCategories();
+                
+                %div.input-field.col.s6
+                    %input{:id => "keys", :type => "text", :name => "claves", :required => ""}
+                    %label{:for => "keys"} Palabras clave para la búsqueda
+
+                %div.input-field.col.s8
+                    %input{:id => "photo", :type => "file", :name => "foto", :required => ""}
+                
+
+                %div.input-field.col.s6
+                    %button{:type => "submit", :name => "sendData", :class => "cyan darken-2 btn-large waves-effect waves-light"} Publicar nota
+
+- if(isset($_POST['sendData'])){
+-    $fecha = date('Y-m-d');
+-    $titulo = $_POST['titulo'];
+-    $descripcion = $_POST['descripcion'];
+-    $categoria = $_POST['categoria'];
+-    $relevante = $_POST['relevante'];
+-    $clave = $_POST['claves'];
+-    $foto = $_FILES['foto']['name'];
+-    $foto_tmp = $_FILES['foto']['tmp_name'];
+
+-    $data->noteData($titulo, $descripcion, $foto, $foto_tmp, $categoria, $relevante, $clave, $fecha);
+-    $data->uploadData();
+- }

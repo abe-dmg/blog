@@ -1,0 +1,46 @@
+<!-- Barras de navegación laterales -->
+- if (!isset($_SESSION['correo'])) {
+-    header('Location: ../views/index.php?userLogin');
+-    exit();
+- }else{
+
+    %div.row
+        %div.col.s12.m4.l3
+            %div.card-panel
+                %span.coral
+                    %i.material-icons.left view_list 
+                    Categorías
+
+            %div.collection.z-depth-1
+                - $data->getCategories();
+                    
+                
+        %div.col.s12.m8.l9
+            - $data->getNote();
+
+            %div.card-panel 
+                %span.coral
+                    %i.material-icons.left message
+                    Comentarios
+
+            %div.container
+                %form{:action => "", :method =>"post"}
+                    %div.row
+                        %div.input-field.col.s6
+                            %i.material-icons.prefix chat
+                            %input{:id => "chat", :name => "descripcion", :type => "text", :required => ""}
+                            %label{:for => "chat"} Escribe tu comentario
+                            
+                        %div.input-field.col.s6
+                            %button{:type => "submit", :class => "cyan darken-2 btn waves-effect waves-light", :name => "sendComent"}Enviar comentario
+
+            - if(isset($_POST['sendComent'])){
+            -    $fecha = date('y-m-d');
+            -    $descripcion = $_POST['descripcion'];
+
+            -    $data->dataCreateComent($descripcion, $fecha);
+            -    $data->createComent();
+            - }
+            - $data->getAllComents();
+
+- }

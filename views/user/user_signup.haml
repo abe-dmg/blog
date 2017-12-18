@@ -1,0 +1,38 @@
+%div.container
+    %div.col.s8
+        %div.card-panel
+            %form{:action => "", :method => "post"}
+                %div.container
+                    %div.center-align
+                        %div.input-field.col.s8
+                            %i.material-icons.prefix account_circle
+                            %input{:id => "name", :type => "text", :name => "nombre", :required => ""} 
+                            %label{:for => "name"} Nombre
+                    
+                        %div.input-field.col.s8
+                            %i.material-icons.prefix account_circle
+                            %input{:id => "last", :type => "text", :name => "apellido", :required => ""} 
+                            %label{:for => "last"} Apellido
+
+                        %div.input-field.col.s8
+                            %i.material-icons.prefix email
+                            %input{:id => "mail", :type => "email", :name => "correo", :required => ""} 
+                            %label{:for => "mail"} Correo electrónico
+
+                        %div.input-field.col.s8
+                            %i.material-icons.prefix dialpad
+                            %input{:id => "pass", :type => "password", :name => "pass", :required => ""} 
+                            %label{:for => "pass"} Contraseña
+                            
+                        %div.input-field.col.s8
+                            %button{:type => "submit", :name => "sign_up", :class => "cyan darken-2 btn-large waves-effect waves-light"}Regístrame
+
+- if(isset($_POST['sign_up'])){
+-    $nombre = $_POST['nombre'];    
+-    $apellido = $_POST['apellido'];
+-    $correo = $_POST['correo'];
+-    $pass = $_POST['pass'];
+
+-    $data->dataSignUp($nombre, $apellido, $correo, $pass);
+-    $data->uploadUser();
+- }

@@ -1,0 +1,16 @@
+%div.card-panel
+    %table.centered.striped
+        %thead
+            %tr
+                %th Nombre
+                %th Apellido
+                %th Rol
+                %th Acción
+        %tbody
+            - $data->showUsers();
+
+- if(isset($_POST['changeData'])){
+-    $nivel = $_POST['nivel'];
+
+-    $data->changeRol();
+- }
