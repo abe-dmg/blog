@@ -17,7 +17,12 @@ Se trabaja con HAML para la optimización de trabajo, para seguir desarrollándo
 
 Instalación de grunt: Una vez instalado Node dirígete a tu servidor local donde estará tu proyecto, por ejemplo:
 
-*Para xampp = C:\xampp\htdocs\NombreDeLaCarpeta *Para wampp = C:\wampp\www\NombreDeLaCarpeta
+<strong>Para xampp: </strong>
+<pre><code>C:\xampp\htdocs\NombreDeLaCarpeta</pre></code>
+
+<strong>Para wampp:</strong>
+
+<pre><code>C:\wampp\www\NombreDeLaCarpeta</pre></code>
 
 Abre esa ruta en tu simbolo de sistema o consola, después escribe:
 
