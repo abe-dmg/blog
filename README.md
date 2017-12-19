@@ -63,6 +63,5 @@ En el que tienes que modificar el valor de las siguientes variables:<br>
         <li>$DB_USER = 'root';</li>
         <li>$DB_PASS = 'llena este campo si tienes una cotraseña;</li>
         <li>$DB_NAME = 'inserta aquí tu nombre de base de datos';</li>
-        
     </ul>
 </strong>
