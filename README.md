@@ -54,5 +54,15 @@ Si no tienes error te retornará un mensaje de confirmación, en la url de tu we
 
 # Modificación de la conexión a la base de datos
 
-Antes de correr el proyecto en tu web no olvides moficar el archivo database.php situado en: config/model/database.php
-En el que va el nombre del servidor, usuario, contraseña y nombre de base de datos.
+Antes de correr el proyecto en tu web no olvides moficar el archivo <strong>database.php</strong> situado en: <strong>config/model/database.php</strong>
+En el que tienes que modificar el valor de las siguientes variables:<br>
+
+<strong>
+    <ul>
+        <li>$DB_HOST = '127.0.0.1/localhost';</li>
+        <li>$DB_USER = 'root';</li>
+        <li>$DB_PASS = 'llena este campo si tienes una cotraseña;</li>
+        <li>$DB_NAME = 'inserta aquí tu nombre de base de datos';</li>
+        
+    </ul>
+</strong>
