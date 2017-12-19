@@ -2,14 +2,13 @@
   <table class="centered striped">
     <thead>
       <tr>
+        <th>ID</th>
         <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Rol</th>
         <th>Acción</th>
       </tr>
     </thead>
     <tbody>
-      <?php $data->showUsers(); ?>
+      <?php $data->showCategories(); ?>
     </tbody>
   </table>
 </div>

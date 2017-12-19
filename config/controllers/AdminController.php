@@ -3,6 +3,8 @@ include('../../config/model/database.php');
 
 class AdminController{
     private $titulo, $descripcion, $foto, $foto_tmp, $relevante, $claves, $categoria, $fecha;
+    private $nombre;
+
     public $id_categoria;
     public function getCurrentUser(){
         if(!isset($_SESSION['correo'])){
@@ -55,9 +57,11 @@ class AdminController{
         $execute = $conexion->query($query);
 
         if($execute){
-            echo "La nota se subió correctamente";
+            echo "<div class='card-panel light-green lighten-1 white-text'>El articulo se publicó correctamente</div>";
         }else{
-            echo "Error -> ". $conexion->error;
+            echo "
+                <div class='card-panel red lighten-1 white-text'>Hubo un error al completar tu registro:  " .$conexion->error. "</div>
+            ";
         }
     }
 
@@ -93,5 +97,42 @@ class AdminController{
             ";
         }
     }
+
+    public function dataCategory($nombre){
+        $this->nombre = $nombre;
+    }
+        
+    public function uploadCategory(){
+        $conexion = new Database();
+        $query = "INSERT INTO categorias(nombre) VALUES ('$this->nombre')";
+        $execute = $conexion->query($query);
+
+        if($execute){
+            echo "
+                <div class='card-panel light-green lighten-1 white-text'>Se añadió correctamente la categoría</div>
+            ";
+        }else{
+            echo "
+                <div class='card-panel red lighten-1 white-text'>Hubo un error al añadir la categoría</div>
+            ";
+        }
+    }
+
+    public function showCategories(){
+        $conexion = new Database();
+        $query = "SELECT * FROM categorias";
+        $execute = $conexion->query($query);
+        while($row = $execute->fetch_array()){
+            echo "
+                <tr>
+                    <td>$row[id]</td>
+                    <td>$row[nombre]</td>
+                    <td><a href = '../../config/controllers/eliminar.php?idCategory=$row[id]'>Eliminar</a></td>
+                </tr>
+            ";
+        }
+
+    }
+
 }
 ?>

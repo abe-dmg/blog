@@ -39,7 +39,10 @@
                         %i.material-icons.left view_list 
                         Menú de opciones
                 %div.collection.z-depth-1
+                    %a{:href => "../index.php", :class => "collection-item"} Ir al blog
                     %a{:href => "panel.php?uploadNote", :class => "collection-item"} Subir nota
+                    %a{:href => "panel.php?uploadCategory", :class => "collection-item"} Subir categoría
+                    %a{:href => "panel.php?showCategories", :class => "collection-item"} Ver categorías
                     %a{:href => "panel.php?showNotes", :class => "collection-item"} Ver notas
                     %a{:href => "panel.php?showUsers", :class => "collection-item"} Ver roles
             
@@ -51,6 +54,10 @@
                 -    include('showNotes.php');
                 - }elseif(isset($_GET['showUsers'])){
                 -    include('showUsers.php');
+                - }elseif(isset($_GET['uploadCategory'])){
+                -    include('uploadCategory.php');
+                - }elseif(isset($_GET['showCategories'])){
+                -    include('showCategories.php');
                 - }else{
                 -    include('showNotes.php');
                 - }    

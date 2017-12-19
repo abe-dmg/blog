@@ -18,9 +18,14 @@ class FunctionController{
         $data = $conexion->query($query);
 
         if($data){
-            echo "<script>M.toast({html: 'Te has registrado correctamente, ahora inicia sesión'})</script>";
+            echo "<div class='container'>
+                <div class='card-panel light-green lighten-1 white-text'>Te has registrado correctamente, ahora inicia sesión</div>
+            </div>";
         }else{
-            echo "<script>M.toast({html:'Ocurrió un error, verifica o intenta de nuevo'})</script>";
+            echo "
+            <div class='container'>
+                <div class='card-panel red lighten-1 white-text'>Hubo un error al completar tu registro:  " .$conexion->error. "</div>
+            </div>";
         }
     }
 
@@ -37,7 +42,10 @@ class FunctionController{
 
         $checkUser = mysqli_num_rows($row);
         if($checkUser == 0){
-            echo "Correo o contraseña incorrectos";
+            echo "
+            <div class='container'>
+                <div class='card-panel red lighten-1 white-text'>Correo o contraseña incorrectos</div>
+            </div>";
         }else{
             session_start();
             $_SESSION['correo'] = $this->correo;
@@ -119,10 +127,12 @@ class FunctionController{
                     while($category = $query3->fetch_array()){
                         echo "
                         <div class='card-panel'>
-                            <h4>$row[titulo]</h4>
-                            <div class='descripcion'>
+                            <div class='center-align'>
+                                <h4>$row[titulo]</h4>
                                 <img src='../assets/img/$row[foto]' width='300' />
+                            </div>
 
+                            <div class='descripcion'>
                                 <p>$row[descripcion]</p>
                             </div>
                             
@@ -159,9 +169,9 @@ class FunctionController{
                 $query3 = $conexion->query($insert);
 
                 if($query3){
-                    echo "Se envió tu comentario";
+                    //echo "Se envió tu comentario";
                 }else{
-                    echo "Hubo un error al publicar tu comentario " . $conexion->error;
+                    echo "<div class='card-panel red lighten-1 white-text'>Hubo un error" . $conexion->error . "</div>";
                 }
             }
         }
@@ -202,7 +212,7 @@ class FunctionController{
 
             $count = mysqli_num_rows($execute);
             if($count == 0){
-                echo "No se encontró ninguna nota con esta categoría";
+                echo "<div class='card-panel red lighten-1 white-text'><i class='material-icons left'>sentiment_very_dissatisfied</i>No se encontró ninguna nota con esta categoría</div>";
             }else{
                 while($row = $execute->fetch_array()){
                     $writer = "SELECT * FROM usuarios WHERE id = '$row[id]'";

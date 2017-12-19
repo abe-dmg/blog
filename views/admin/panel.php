@@ -43,7 +43,10 @@
           </span>
         </div>
         <div class="collection z-depth-1">
+          <a href="../index.php" class="collection-item">Ir al blog</a>
           <a href="panel.php?uploadNote" class="collection-item">Subir nota</a>
+          <a href="panel.php?uploadCategory" class="collection-item">Subir categoría</a>
+          <a href="panel.php?showCategories" class="collection-item">Ver categorías</a>
           <a href="panel.php?showNotes" class="collection-item">Ver notas</a>
           <a href="panel.php?showUsers" class="collection-item">Ver roles</a>
         </div>
@@ -55,6 +58,10 @@
         <?php include('showNotes.php'); ?>
         <?php }elseif(isset($_GET['showUsers'])){; ?>
         <?php include('showUsers.php'); ?>
+        <?php }elseif(isset($_GET['uploadCategory'])){; ?>
+        <?php include('uploadCategory.php'); ?>
+        <?php }elseif(isset($_GET['showCategories'])){; ?>
+        <?php include('showCategories.php'); ?>
         <?php }else{; ?>
         <?php include('showNotes.php'); ?>
         <?php }    ; ?>

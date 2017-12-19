@@ -5,7 +5,7 @@
   </span>
 </div>
 <div class="row">
-  <div class="cad-panel">
+  <div>
     <form action="" method="post" enctype="multipart/form-data">
       <div class="center-align">
         <div class="input-field col s6">
