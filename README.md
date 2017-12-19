@@ -2,7 +2,12 @@
 
 Éste es un blog de principante para aprendizaje en desarrollo web, se consideran los siguientes puntos dentro del proyecto:
 
-*Material Design *Arquitectura MVC *Programación orientada a objetos *Preprocesadores de lenguaje
+<ul>
+    <li>Material Design</li>
+    <li>Arquitectura MVC</li>
+    <li>Programación orientada a objetos</li>
+    <li>Preprocesadores de lenguaje</li>
+</ul>
 
 Se trabaja con HAML para la optimización de trabajo, para seguir desarrollándolo y modificarlo a tu gusto debes tener lo siguiente instalado en tu computadora:
 
@@ -16,19 +21,19 @@ Instalación de grunt: Una vez instalado Node dirígete a tu servidor local dond
 
 Abre esa ruta en tu simbolo de sistema o consola, después escribe:
 
-*npm install -g grunt-cli
+<pre><code>npm install -g grunt-cli</pre></code>
 
 Esto instalará grunt en tu equipo Después de ello instala todas las dependencias en tu proyecto con:
 
-*npm install
+<pre><code>npm install</pre></code>
 
 Puedes verificar escribiendo:
 
-*grunt -v
+<pre><code>grunt -v</pre></code>
 
 Si la consola no reconoce haml desde este punto escribe:
 
-*npm install grunt-haml-php --save-dev
+<pre><code>npm install grunt-haml-php --save-dev</pre></code>
 
 La configuración se encuentra en gruntfile.js y en package.json
 
@@ -38,7 +43,7 @@ Puedes revisar la documentación de inicio en:
 
 Tienes que escribir en los archivos con extensión .haml, después de ello compila en la consola dentro de la dirección antes mencionada escribiendo:
 
-*grunt haml:compile
+<pre><code>grunt haml:compile</pre></code>
 
 Si no tienes error te retornará un mensaje de confirmación, en la url de tu web visita los archivos con extensión .php ya que no reconocerá los .haml
 
