@@ -46,7 +46,7 @@ Finalmente para instalar HAML PHP escribe:
 
 <strong><h3>package.json</h3></strong>
 <pre><code>
-	{
+{
     "name": "blog",
     "version": "0.1.0",
     "devDependencies": {
@@ -61,7 +61,7 @@ Finalmente para instalar HAML PHP escribe:
 
 <strong><h3>gruntfile.js</h3></strong>
 <pre><code>
-	module.exports = function (grunt) {
+module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         uglify: {
@@ -91,6 +91,8 @@ Finalmente para instalar HAML PHP escribe:
     grunt.registerTask('default', ['uglify']);
 };
 </code></pre>
+
+<p>Después de esto puedes correr el comando: <code><pre>npm install</pre></code></p>
 
 Puedes revisar la documentación de inicio en:
 
