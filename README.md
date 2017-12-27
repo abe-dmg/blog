@@ -92,7 +92,7 @@ module.exports = function (grunt) {
 };
 </code></pre>
 
-<p>Después de esto puedes correr el comando: <code><pre>npm install</pre></code></p>
+Después de esto puedes correr el comando: <code><pre>npm install</pre></code>
 
 Puedes revisar la documentación de inicio en:
 
