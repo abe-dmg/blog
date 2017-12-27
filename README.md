@@ -12,9 +12,9 @@
 Se trabaja con HAML para la optimización de trabajo, para seguir desarrollándolo y modificarlo a tu gusto debes tener lo siguiente instalado en tu computadora:
 
 <ol>
-	<li>NodeJS -> <a href="https://nodejs.org/es/download/" target="_blank">https://nodejs.org/es/download/</a></li>
-	<li>Instalar composer -> <a href="https://getcomposer.org/download/" target="_blank">https://getcomposer.org/download/</a></li>
-	<li>Instalar grunt -> <a href="https://gruntjs.com/getting-started" target="_blank">https://gruntjs.com/getting-started</a></li>
+	<li>NodeJS => <a href="https://nodejs.org/es/download/" target="_blank">https://nodejs.org/es/download/</a></li>
+	<li>Instalar composer => <a href="https://getcomposer.org/download/" target="_blank">https://getcomposer.org/download/</a></li>
+	<li>Instalar grunt => <a href="https://gruntjs.com/getting-started" target="_blank">https://gruntjs.com/getting-started</a></li>
 </ol>
 
 Instalación de grunt: Una vez instalado Node dirígete a tu servidor local donde estará tu proyecto, por ejemplo:
@@ -96,7 +96,9 @@ Después de esto puedes correr el comando: <code><pre>npm install</pre></code>
 
 Puedes revisar la documentación de inicio en:
 
-*https://www.npmjs.com/package/grunt-haml-php
+https://www.npmjs.com/package/grunt-haml-php
+
+<br>
 
 Tienes que escribir en los archivos con extensión .haml, después de ello compila en la consola dentro de la dirección antes mencionada escribiendo:
 
