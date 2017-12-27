@@ -11,9 +11,11 @@
 
 Se trabaja con HAML para la optimización de trabajo, para seguir desarrollándolo y modificarlo a tu gusto debes tener lo siguiente instalado en tu computadora:
 
-*NodeJS https://nodejs.org/es/download/
-
-*Instalar grunt https://gruntjs.com/getting-started
+<ol>
+	<li>NodeJS -> <a href="https://nodejs.org/es/download/" target="_blank">https://nodejs.org/es/download/</a></li>
+	<li>Instalar composer -> <a href="https://getcomposer.org/download/" target="_blank">https://getcomposer.org/download/</a></li>
+	<li>Instalar grunt -> <a href="https://gruntjs.com/getting-started" target="_blank">https://gruntjs.com/getting-started</a></li>
+</ol>
 
 Instalación de grunt: Una vez instalado Node dirígete a tu servidor local donde estará tu proyecto, por ejemplo:
 
@@ -36,11 +38,59 @@ Puedes verificar escribiendo:
 
 <pre><code>grunt -v</pre></code>
 
-Si la consola no reconoce haml desde este punto escribe:
+Finalmente para instalar HAML PHP escribe:
 
 <pre><code>npm install grunt-haml-php --save-dev</pre></code>
 
-La configuración se encuentra en gruntfile.js y en package.json
+<strong>Si hay errores en la instalación deberás escribir los archivos gruntfile.js y en package.json</strong>
+
+<strong><h3>package.json</h3></strong>
+<pre><code>
+	{
+    "name": "blog",
+    "version": "0.1.0",
+    "devDependencies": {
+        "grunt": "~0.4.5",
+        "grunt-contrib-jshint": "~0.10.0",
+        "grunt-contrib-nodeunit": "~0.4.1",
+        "grunt-contrib-uglify": "~0.5.0",
+        "grunt-haml-php": "^0.5.0"
+    }
+}
+</code></pre>
+
+<strong><h3>gruntfile.js</h3></strong>
+<pre><code>
+	module.exports = function (grunt) {
+    grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
+        uglify: {
+            options: {
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+            },
+            build: {
+                src: 'src/<%= pkg.name %>.js',
+                dest: 'build/<%= pkg.name %>.min.js'
+            }
+        },
+
+        haml: {
+            compile: {
+                files: [{
+                    expand: true,
+                    src: ['views/**/*.haml'], //Esta es mi ruta, retornará al mismo directorio, puedes modificar esto a tu gusto
+                    dest: '',
+                    ext: '.php' //Creará un archivo php a la mano de ejecutar haml, por ejemplo: index.haml => indes.php
+                }]
+            },
+        }
+    });
+
+    grunt.loadNpmTasks('grunt-haml-php');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.registerTask('default', ['uglify']);
+};
+</code></pre>
 
 Puedes revisar la documentación de inicio en:
 

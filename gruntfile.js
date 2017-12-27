@@ -15,7 +15,7 @@ module.exports = function (grunt) {
             compile: {
                 files: [{
                     expand: true,
-                    src: ['views/**/*.haml'],
+                    src: ['views/**/*.haml'], 
                     dest: '',
                     ext: '.php'
                 }]
